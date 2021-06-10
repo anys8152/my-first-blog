@@ -16,7 +16,11 @@
     </head>
     <body>
         <div class="page-header">
-            <h1><a href="">Django Girls Blog</a></h1>
+            <!-- 관리자로 로그인한 user만 보이게하기 -->
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
+            <h1><a href="/">Django Girls Blog</a></h1>
         </div>
         <div class="content container">
             <div class="row">
